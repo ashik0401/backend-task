@@ -15,7 +15,7 @@ router.post("/register", async (req, res, next) => {
       err.statusCode = 400;
       throw err;
     }
-    const db = getDB();
+    const db = await getDB();
     const users = db.collection("users");
     const existingUser = await users.findOne({ email });
     if (existingUser) {
@@ -44,7 +44,7 @@ router.post("/login", async (req, res, next) => {
       err.statusCode = 400;
       throw err;
     }
-    const db = getDB();
+    const db = await getDB();
     const users = db.collection("users");
     const user = await users.findOne({ email });
     if (!user) {
@@ -67,7 +67,7 @@ router.post("/login", async (req, res, next) => {
 
 router.get("/me", authMiddleware, async (req, res, next) => {
   try {
-    const db = getDB();
+    const db = await getDB();
     const users = db.collection("users");
     const user = await users.findOne({ _id: new ObjectId(req.user.userId) }, { projection: { password: 0 } });
     if (!user) {

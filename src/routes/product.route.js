@@ -13,7 +13,7 @@ router.post("/", authMiddleware, async (req, res, next) => {
       err.statusCode = 400;
       throw err;
     }
-    const db = getDB();
+    const db = await getDB();
     const result = await db.collection("products").insertOne({
       name,
       description: description || "",
@@ -28,7 +28,7 @@ router.post("/", authMiddleware, async (req, res, next) => {
 
 router.get("/", async (req, res, next) => {
   try {
-    const db = getDB();
+    const db = await getDB();
     const products = await db.collection("products").find({}).toArray();
     res.json(products);
   } catch (err) {
@@ -38,7 +38,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const db = getDB();
+    const db = await getDB();
     const product = await db
       .collection("products")
       .findOne({ _id: new ObjectId(req.params.id) });
@@ -55,7 +55,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.put("/:id", authMiddleware, async (req, res, next) => {
   try {
-    const db = getDB();
+    const db = await getDB();
     const { name, description, price } = req.body;
     const result = await db.collection("products").updateOne(
       { _id: new ObjectId(req.params.id) },
@@ -74,7 +74,7 @@ router.put("/:id", authMiddleware, async (req, res, next) => {
 
 router.delete("/:id", authMiddleware, async (req, res, next) => {
   try {
-    const db = getDB();
+    const db = await getDB();
     const result = await db.collection("products").deleteOne({ _id: new ObjectId(req.params.id) });
     if (result.deletedCount === 0) {
       const err = new Error("Product not found");

@@ -2,10 +2,11 @@ const express = require("express");
 const { ObjectId } = require("mongodb");
 const { getDB } = require("../config/db");
 const authMiddleware = require("../middlewares/auth.middleware");
-const Stripe = require("stripe");
 const BASE_URL = process.env.BASE_URL;
-
+require("dotenv").config();
+const Stripe = require("stripe");
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
 const router = express.Router();
 
 router.post("/", authMiddleware, async (req, res, next) => {
@@ -13,7 +14,7 @@ router.post("/", authMiddleware, async (req, res, next) => {
     const { productId } = req.body;
     if (!productId) throw { statusCode: 400, message: "Product ID is required" };
 
-    const db = getDB();
+    const db = await getDB();
     const product = await db.collection("products").findOne({ _id: new ObjectId(productId) });
     if (!product) throw { statusCode: 404, message: "Product not found" };
 
@@ -26,22 +27,22 @@ router.post("/", authMiddleware, async (req, res, next) => {
     });
 
     const session = await stripe.checkout.sessions.create({
-  payment_method_types: ["card"],
-  line_items: [
-    {
-      price_data: {
-        currency: "usd",
-        product_data: { name: product.name },
-        unit_amount: product.price * 100
-      },
-      quantity: 1
-    }
-  ],
-  mode: "payment",
-  success_url: `${BASE_URL}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-  cancel_url: `${BASE_URL}/payment-cancel`,
-  metadata: { orderId: order.insertedId.toString() }
-});
+      payment_method_types: ["card"],
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            product_data: { name: product.name },
+            unit_amount: product.price * 100
+          },
+          quantity: 1
+        }
+      ],
+      mode: "payment",
+      success_url: `${BASE_URL}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${BASE_URL}/payment-cancel`,
+      metadata: { orderId: order.insertedId.toString() }
+    });
 
     res.status(201).json({ checkoutUrl: session.url });
   } catch (err) {
@@ -60,7 +61,7 @@ router.post("/webhook", express.raw({ type: "application/json" }), async (req, r
       const session = event.data.object;
       const orderId = session.metadata.orderId;
 
-      const db = getDB();
+      const db = await getDB();
       await db.collection("orders").updateOne(
         { _id: new ObjectId(orderId) },
         { $set: { status: "paid", paidAt: new Date() } }
@@ -75,7 +76,7 @@ router.post("/webhook", express.raw({ type: "application/json" }), async (req, r
 
 router.get("/", authMiddleware, async (req, res, next) => {
   try {
-    const db = getDB();
+    const db = await getDB();
     const orders = await db
       .collection("orders")
       .find({ userId: new ObjectId(req.user.userId) })
@@ -88,7 +89,7 @@ router.get("/", authMiddleware, async (req, res, next) => {
 
 router.get("/:id", authMiddleware, async (req, res, next) => {
   try {
-    const db = getDB();
+    const db = await getDB();
     const order = await db.collection("orders").findOne({
       _id: new ObjectId(req.params.id),
       userId: new ObjectId(req.user.userId)
