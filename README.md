@@ -11,7 +11,7 @@ It demonstrates authentication, product/order management, Stripe payment integra
   https://backend-assignment-orcin.vercel.app/
 
 - **Stripe Webhook Endpoint:**  
-  https://backend-assignment-orcin.vercel.app/api/orders/webhook
+  https://backend-assignment-orcin.vercel.app/orders/webhook
 
 ---
 
@@ -86,12 +86,10 @@ Sample requests & responses included
 ## 🌍 Environment Variables 
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-
+DB_NAME=your_db_name
 JWT_SECRET=your_jwt_secret
-
-STRIPE_SECRET_KEY=sk_test_********
-STRIPE_WEBHOOK_SECRET=whsec_********
-
+STRIPE_SECRET_KEY=sk_test_xxx
+STRIPE_WEBHOOK_SECRET=whsec_xxx
 BASE_URL=https://backend-assignment-orcin.vercel.app/
 
 
