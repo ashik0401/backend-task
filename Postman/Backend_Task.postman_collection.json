@@ -1,0 +1,406 @@
+{
+  "info": {
+    "_postman_id": "b7a924ad-8ebb-4aab-a6c3-bf01ebb7919c",
+    "name": "Backend_Task",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51588274",
+    "_collection_link": "https://go.postman.co/collection/51588274-b7a924ad-8ebb-4aab-a6c3-bf01ebb7919c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/auth/register",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTZjYWY2M2JmZTgwYWNiZTcyZWFlNDciLCJlbWFpbCI6ImFzaGlrQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY4ODM5OTAzLCJleHAiOjE3Njk0NDQ3MDN9.80zef2gYylQoshmGHKLVz_-1sbedN8g08wCZjZUsq5U",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Ashik\",\r\n  \"email\": \"ashik@example.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/auth/register",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/auth/login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"ashik@example.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/auth/login",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/auth/me",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTZjYWY2M2JmZTgwYWNiZTcyZWFlNDciLCJlbWFpbCI6ImFzaGlrQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY4ODQwMTk3LCJleHAiOjE3Njk0NDQ5OTd9.kt9m33083Ps00DB6zNXuDIerUuKz-gKpRgTQ7__0uQs",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/auth/me",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "auth",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/products",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTZjYWY2M2JmZTgwYWNiZTcyZWFlNDciLCJlbWFpbCI6ImFzaGlrQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY4ODQwMTk3LCJleHAiOjE3Njk0NDQ5OTd9.kt9m33083Ps00DB6zNXuDIerUuKz-gKpRgTQ7__0uQs",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Premium Plan\",\r\n  \"description\": \"Access all features\",\r\n  \"price\": 499\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/products",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/products",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/products",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/products/696e5d3a0bed3493590a81bc",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/products/696e5d3a0bed3493590a81bc",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "products",
+            "696e5d3a0bed3493590a81bc"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/products/696e5d3a0bed3493590a81bc",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTZjYWY2M2JmZTgwYWNiZTcyZWFlNDciLCJlbWFpbCI6ImFzaGlrQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY4ODQwMTk3LCJleHAiOjE3Njk0NDQ5OTd9.kt9m33083Ps00DB6zNXuDIerUuKz-gKpRgTQ7__0uQs",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Updated Plan\",\r\n  \"description\": \"Updated description\",\r\n  \"price\": 599\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/products/696e5d3a0bed3493590a81bc",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "products",
+            "696e5d3a0bed3493590a81bc"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/products/696cb146bfe80acbe72eae48",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTZjYWY2M2JmZTgwYWNiZTcyZWFlNDciLCJlbWFpbCI6ImFzaGlrQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY4ODQwMTk3LCJleHAiOjE3Njk0NDQ5OTd9.kt9m33083Ps00DB6zNXuDIerUuKz-gKpRgTQ7__0uQs",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Updated Plan\",\r\n  \"description\": \"Updated description\",\r\n  \"price\": 2500\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/products/696cb146bfe80acbe72eae48",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "products",
+            "696cb146bfe80acbe72eae48"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/orders",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTZjYWY2M2JmZTgwYWNiZTcyZWFlNDciLCJlbWFpbCI6ImFzaGlrQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY4ODQwMTk3LCJleHAiOjE3Njk0NDQ5OTd9.kt9m33083Ps00DB6zNXuDIerUuKz-gKpRgTQ7__0uQs",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"productId\": \"696e5d3a0bed3493590a81bc\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/orders",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/orders",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTZjYWY2M2JmZTgwYWNiZTcyZWFlNDciLCJlbWFpbCI6ImFzaGlrQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY4NzMxOTk0LCJleHAiOjE3NjkzMzY3OTR9.ZBpLCQ_OxE_OdJN3oenFjl0ZqOOCHmZ3kCbJeoKeLxU",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/orders",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app/orders/696cb1edbfe80acbe72eae4a",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTZjYWY2M2JmZTgwYWNiZTcyZWFlNDciLCJlbWFpbCI6ImFzaGlrQGV4YW1wbGUuY29tIiwiaWF0IjoxNzY4NzMxOTk0LCJleHAiOjE3NjkzMzY3OTR9.ZBpLCQ_OxE_OdJN3oenFjl0ZqOOCHmZ3kCbJeoKeLxU",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app/orders/696cb1edbfe80acbe72eae4a",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "orders",
+            "696cb1edbfe80acbe72eae4a"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://backend-assignment-orcin.vercel.app",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://backend-assignment-orcin.vercel.app",
+          "protocol": "https",
+          "host": [
+            "backend-assignment-orcin",
+            "vercel",
+            "app"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
